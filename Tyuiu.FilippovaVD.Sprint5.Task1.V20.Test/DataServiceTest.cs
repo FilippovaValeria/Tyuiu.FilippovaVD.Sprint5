@@ -15,21 +15,15 @@ namespace Tyuiu.FilippovaVD.Sprint5.Task1.V20.Test
             int stop = 5;
 
             string path = ds.SaveToFileTextData(start, stop);
-
             bool fileExists = File.Exists(path);
             Assert.IsTrue(fileExists);
 
             string[] lines = File.ReadAllLines(path);
-
             Assert.HasCount(11, lines);
 
-            string[] firstLineParts = lines[0].Split(';');
+            string actualValue = lines[0].Replace(',', '.');
 
-            Assert.AreEqual("-5", firstLineParts[0]);
-
-            string actualValue = firstLineParts[1].Replace(',', '.');
-
-            Assert.AreEqual("-15.4", actualValue);
+            Assert.AreEqual("-15.40", actualValue);
         }
     }
 }

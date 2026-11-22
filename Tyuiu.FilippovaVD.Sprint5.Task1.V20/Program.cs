@@ -36,20 +36,20 @@ namespace Tyuiu.FilippovaVD.Sprint5.Task1.V20
             Console.WriteLine("***************************************************************************");
 
             string path = ds.SaveToFileTextData(startValue, stopValue);
-
             Console.WriteLine($"Файл сохранен: {path}");
             Console.WriteLine();
+
+            string[] lines = File.ReadAllLines(path);
 
             Console.WriteLine("+----------+----------+");
             Console.WriteLine("|    X     |   F(X)   |");
             Console.WriteLine("+----------+----------+");
 
-            string[] lines = File.ReadAllLines(path);
+            int currentX = startValue; 
             foreach (string line in lines)
             {
-                string[] parts = line.Split(';');
-                
-                Console.WriteLine($"| {parts[0],-8} | {parts[1],-8} |");
+                Console.WriteLine($"| {currentX,-8} | {line,-8} |");
+                currentX++;
             }
             Console.WriteLine("+----------+----------+");
 
