@@ -9,7 +9,7 @@ namespace Tyuiu.FilippovaVD.Sprint5.Task1.V20.Lib
         public string SaveToFileTextData(int startValue, int stopValue)
         {
             string path = Path.Combine(Path.GetTempPath(), "OutPutFileTask1.txt");
-            File.WriteAllText(path, "");
+            File.WriteAllText(path, ""); 
 
             for (int x = startValue; x <= stopValue; x++)
             {
@@ -21,12 +21,14 @@ namespace Tyuiu.FilippovaVD.Sprint5.Task1.V20.Lib
                     result = (5.0 * x + 2.5) / denominator + 2.0 * x + Math.Cos(x);
                     result = Math.Round(result, 2);
                 }
-                else
-                {
-                    result = 0;
-                }
 
                 string line = result.ToString("F2", new CultureInfo("ru-RU"));
+
+                line = line.TrimEnd('0');
+                if (line.EndsWith(","))
+                {
+                    line = line.TrimEnd(',');
+                }
 
                 File.AppendAllText(path, line + Environment.NewLine);
             }

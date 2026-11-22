@@ -21,9 +21,9 @@ namespace Tyuiu.FilippovaVD.Sprint5.Task1.V20.Test
             string[] lines = File.ReadAllLines(path);
             Assert.HasCount(11, lines);
 
-            string actualValue = lines[0].Replace(',', '.');
+            Assert.AreEqual("-15,4", lines[0]);
 
-            Assert.AreEqual("-15.40", actualValue);
+            Assert.AreEqual("-8", lines[3]);
         }
     }
 }
