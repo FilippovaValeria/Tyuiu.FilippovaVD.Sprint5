@@ -15,6 +15,7 @@ namespace Tyuiu.FilippovaVD.Sprint5.Task7.V22.Lib
                 .Replace("!", "#")
                 .Replace("?", "#")
                 .Replace(";", "#")
+                .Replace("-", "#")
                 .Replace(":", "#");
 
             string outPath = Path.Combine(Path.GetTempPath(), "OutPutDataFileTask7V22.txt");
